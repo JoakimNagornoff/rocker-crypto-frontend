@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useQuery, gql } from "@apollo/client";
+import CryptoList from "../components/CryptoList";
 
 const cryptos = gql`
   query GetCryptos {
@@ -12,12 +13,13 @@ const cryptos = gql`
     }
   }
 `;
+
 const HomeSceen = () => {
   const { loading, error, data } = useQuery(cryptos);
-  console.log(data);
+
   return (
     <View style={styles.container}>
-      <Text>home</Text>
+      <CryptoList />
     </View>
   );
 };
@@ -26,8 +28,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 

@@ -6,11 +6,12 @@ import SearchScreen from "./screens/SearchScreen";
 import HomeSceen from "./screens/HomeScreen";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-//need to be expo ip address
+//need to be expo ip address changes everytime
 const client = new ApolloClient({
-  uri: "http:/192.168.10.246:4000/graphql",
+  uri: "http:/192.168.1.180:4000/graphql",
   cache: new InMemoryCache(),
 });
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
