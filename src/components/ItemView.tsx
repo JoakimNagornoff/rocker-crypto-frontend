@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export function Item({ id, name, price, props }) {
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
   right: {
     flex: 1,
     alignSelf: "flex-end",

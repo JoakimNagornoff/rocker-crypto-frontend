@@ -31,7 +31,7 @@ const CryptoItem = () => {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: 0.5 }}>
+      <View style={styles.halfContainer}>
         {data?.getCrypto?.map((p) => (
           <Item
             key={p.asset_id}
@@ -42,18 +42,18 @@ const CryptoItem = () => {
           />
         ))}
       </View>
-      <View style={{ flex: 0.5 }}>
+      <View style={styles.halfContainer}>
         <TextInput
           style={styles.input}
           placeholder="Search for Crypto"
           onChangeText={(text) => setSearched(text)}
         />
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => getVar({ variables: { name: search } })}
           >
-            <Text style={{ textAlign: "center", color: "white" }}>SEARCH</Text>
+            <Text style={styles.buttonText}>SEARCH</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -67,12 +67,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  halfContainer: {
+    flex: 0.5,
+  },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: "center",
+  },
   input: {
     borderBottomColor: "#8A8F9E",
     borderBottomWidth: StyleSheet.hairlineWidth,
     height: 40,
     fontSize: 15,
     color: "#161F3D",
+    textAlign: "center",
   },
   loadingIndicatorContainer: {
     backgroundColor: "#d3d3d3",
@@ -90,6 +98,10 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     padding: 10,
     width: 380,
+  },
+  buttonText: {
+    textAlign: "center",
+    color: "white",
   },
 });
 export default CryptoItem;
